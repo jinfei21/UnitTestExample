@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.finix.test.mapper.CityMapper">
+
+    <select id="get" parameterType="Integer" resultType="com.finix.test.entity.City">
+        SELECT *
+        FROM city
+        WHERE cityId = #{cityId}
+    </select>
+
+    <insert id="add" parameterType="com.finix.test.entity.City" useGeneratedKeys="true" keyProperty="cityId">
+        INSERT INTO city (name, province) VALUES (#{name}, #{province})
+    </insert>
+
+    <select id="getAll" resultType="com.finix.test.entity.City">
+        SELECT *
+        FROM city
+    </select>
+    <delete id="delAll" >
+      DELETE  FROM  city;
+    </delete>
+
+</mapper>
